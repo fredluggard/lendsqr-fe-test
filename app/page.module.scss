@@ -1,0 +1,11 @@
+@import "../styles/variables.scss";
+
+.header {
+  color: $text-dark;
+  font-size: 2rem;
+
+  a {
+    color: $accent;
+    text-decoration: none;
+  }
+}

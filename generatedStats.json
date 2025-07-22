@@ -1,0 +1,26 @@
+[
+  {
+    "title": "USERS",
+    "value": "2,453",
+    "icon": "/icons/card1.svg",
+    "color": "card1"
+  },
+  {
+    "title": "ACTIVE USERS",
+    "value": "2,453",
+    "icon": "/icons/card2.svg",
+    "color": "card2"
+  },
+  {
+    "title": "USERS WITH LOANS",
+    "value": "12,453",
+    "icon": "/icons/card3.svg",
+    "color": "card3"
+  },
+  {
+    "title": "USERS WITH SAVINGS",
+    "value": "102,453",
+    "icon": "/icons/card4.svg",
+    "color": "card4"
+  }
+]
