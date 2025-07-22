@@ -1,0 +1,382 @@
+@import "../../../styles/variables.scss";
+
+.profileBox {
+  width: 100%;
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+
+  span {
+    display: flex;
+    gap: 13px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    color: $text-dark;
+    font-size: $font-md;
+    font-family: var(--font-work-sans);
+    font-weight: 400;
+    cursor: pointer;
+  }
+}
+
+.userHeader {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  h1 {
+    color: $primary;
+    font-size: $font-xl;
+    font-family: var(--font-work-sans);
+    font-weight: 500;
+  }
+
+  .blacklistBtn {
+    width: 170px;
+    height: 40px;
+    border: 1px solid #e4033b;
+    border-radius: 8px;
+    margin: 0 10px;
+    padding: 12px 16px;
+    font-size: $font-sm;
+    font-family: var(--font-work-sans);
+    font-weight: 600;
+    color: #e4033b;
+
+    &:hover {
+      background-color: #e4033b0f;
+    }
+  }
+
+  .activateBtn {
+    width: 170px;
+    height: 40px;
+    border: 1px solid $secondary;
+    border-radius: 8px;
+    margin: 0 10px;
+    padding: 12px 16px;
+    font-size: $font-sm;
+    font-family: var(--font-work-sans);
+    font-weight: 600;
+    color: $secondary;
+
+    &:hover {
+      background-color: #39cdcc0f;
+    }
+  }
+}
+
+.detailsBox {
+  width: 100%;
+  display: flex;
+  gap: 50px;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $background;
+  border-radius: 4px;
+  padding: 0 30px;
+  padding-top: 30px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.detailsBox2 {
+  width: 100%;
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $background;
+  border-radius: 4px;
+  padding: 0 30px;
+  padding-top: 30px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.detailsBox3 {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  background-color: $background;
+  border-radius: 4px;
+  padding: 30px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profileDetails {
+  width: 100%;
+  display: flex;
+  gap: 30px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+
+  .profileImage {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .userDiv {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+
+    h1 {
+      color: $primary;
+      font-size: 22px;
+      font-family: var(--font-work-sans);
+      font-weight: 500;
+    }
+    p {
+      color: $text-dark;
+      font-size: $font-sm;
+      font-family: var(--font-work-sans);
+      font-weight: 400;
+    }
+  }
+
+  .userTier {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding: 15px 30px;
+    border-left: 1px solid $text-dark;
+    border-right: 1px solid $text-dark;
+
+    p {
+      color: $text-dark;
+      font-size: $font-sm;
+      font-family: var(--font-work-sans);
+      font-weight: 500;
+    }
+
+    .stars {
+      display: flex;
+      gap: 5px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: start;
+    }
+  }
+
+  .bankInfo {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+
+    h1 {
+      color: $primary;
+      font-size: 22px;
+      font-family: var(--font-work-sans);
+      font-weight: 500;
+    }
+    p {
+      color: $primary;
+      font-size: $font-sm;
+      font-family: var(--font-work-sans);
+      font-weight: 400;
+    }
+  }
+}
+
+.menuBtn {
+  width: 100%;
+  display: flex;
+  gap: 30px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  span {
+    color: $text-dark;
+    font-size: $font-md;
+    font-family: var(--font-work-sans);
+    font-weight: 400;
+    transition: border-bottom 0.3s ease-in-out;
+  }
+
+  .active {
+    color: $secondary;
+    padding: 10px 25px;
+    border-bottom: 2px solid $secondary;
+  }
+}
+
+.infoBox {
+  width: 100%;
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+
+  section {
+    width: 100%;
+    height: 1px;
+    background-color: #213f7d0f;
+  }
+
+  .hid {
+    opacity: 0;
+    margin: 5px 0;
+  }
+
+  h1 {
+    color: $primary;
+    font-size: $font-md;
+    font-family: var(--font-work-sans);
+    font-weight: 500;
+  }
+
+  .gridBox {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+  }
+  .gridBox2 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+  .infoItem {
+    .label {
+      font-size: 12px;
+      color: $text-dark;
+      font-family: var(--font-work-sans);
+      font-weight: 400;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .value {
+      color: $text-dark;
+      font-size: $font-md;
+      font-weight: 500;
+      font-family: var(--font-work-sans);
+      white-space: nowrap;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profileBox {
+    width: 100%;
+
+    span {
+      display: none;
+    }
+  }
+
+  .userHeader {
+    gap: 40px;
+    flex-direction: column;
+    align-items: start;
+
+    div {
+      width: 100%;
+      display: flex;
+
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .blacklistBtn {
+      width: fit-content !important;
+      padding: 12px;
+      font-size: $font-sm;
+      font-weight: 400;
+    }
+
+    .activateBtn {
+      width: fit-content !important;
+      padding: 12px;
+      font-size: $font-sm;
+      font-weight: 400;
+    }
+  }
+
+  .detailsBox {
+    width: 100%;
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $background;
+    border-radius: 4px;
+    padding: 0 30px;
+    padding-top: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .detailsBox2 {
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $background;
+    border-radius: 4px;
+    padding: 0 30px;
+    padding-top: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .detailsBox3 {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    background-color: $background;
+    border-radius: 4px;
+    padding: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .profileDetails {
+    gap: 10px;
+    flex-direction: column;
+
+    .userTier {
+      border-left: none;
+      border-right: none;
+    }
+  }
+
+  .infoBox {
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+
+    section {
+      width: 100%;
+      height: 1px;
+      background-color: #213f7d0f;
+    }
+
+    .gridBox {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .gridBox2 {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
