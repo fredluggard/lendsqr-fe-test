@@ -1,0 +1,82 @@
+@import "../../styles/variables.scss";
+
+.searchBar {
+  width: 25rem;
+  height: 2.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  input {
+    width: 340px;
+    height: 100%;
+    padding: 12px 20px;
+    border: 1px solid $primary;
+    border-right: 0px;
+    border-radius: 8px 0 0 8px;
+    color: $text-dark;
+
+    &::placeholder {
+      color: $text-dark;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $secondary;
+    }
+  }
+
+  button {
+    width: 56px;
+    height: 2.5rem;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    color: $background;
+    background-color: $secondary;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .searchBar {
+    width: fit-content;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    input {
+      display: none;
+      width: 340px;
+      height: 100%;
+      padding: 12px 20px;
+      border: 1px solid $primary;
+      border-right: 0px;
+      border-radius: 8px 0 0 8px;
+      color: $text-dark;
+
+      &::placeholder {
+        color: $text-dark;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: $secondary;
+      }
+    }
+
+    button {
+      width: 56px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border: none;
+      border-radius: 8px;
+      color: $background;
+      background-color: $secondary;
+    }
+  }
+}

@@ -1,0 +1,239 @@
+@import "../../styles//variables.scss";
+
+.sidebar {
+  width: 100%;
+  height: auto;
+  display: flex;
+  gap: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.topStack {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.875rem;
+  background-color: $background;
+  border-bottom: 1px solid #e5e5e5;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.hamburger {
+  display: none;
+}
+
+.logoSearch {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  gap: 140px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+}
+
+.userBox {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  gap: 30px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+
+  a {
+    color: $text-dark;
+    font-size: $font-md;
+    font-family: var(--font-roboto);
+    text-decoration: underline;
+  }
+}
+
+.userDetails {
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  .userImg {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+  }
+}
+
+.user {
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  gap: 4px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  p {
+    color: $primary;
+    font-size: $font-md;
+    font-family: var(--font-work-sans);
+    font-weight: 500;
+  }
+
+  .userImg {
+    width: 8px;
+    height: 5px;
+  }
+}
+
+.lowerStack {
+  width: 100%;
+  height: auto;
+  display: flex;
+  gap: 0px;
+  flex-direction: row;
+  align-items: start;
+  justify-content: space-between;
+  background-color: $background;
+}
+
+.leftBar {
+  width: 250px;
+  height: auto;
+  display: flex;
+  gap: 0;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  background-color: $background;
+  //   border-right: 1px solid #e5e5e5;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08);
+}
+
+.orgSwitch {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 9.6px 16px;
+  margin: 2.5rem 0;
+  cursor: pointer;
+}
+
+.menu {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sectionTitle {
+  font-size: 12px;
+  color: $text-dark;
+  font-family: var(--font-work-sans);
+  padding: 9.6px 16px;
+  margin: 16px 0px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.menuItem {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 9.6px 16px;
+  border-left: 3px solid transparent;
+  color: $primary;
+  font-weight: 400;
+  font-size: 14px;
+  font-family: var(--font-work-sans);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+
+  &:hover {
+    background-color: #f5f7fa;
+  }
+}
+
+.active {
+  background-color: #e6f7f8;
+  color: $primary;
+  border-left: 3px solid $secondary;
+  font-weight: 600;
+}
+
+.icon {
+  margin-right: 0.7rem;
+}
+
+.rightBar {
+  width: calc(100% - 250px);
+  height: 100%;
+  display: flex;
+  gap: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fbfbfb;
+  padding: 60px;
+}
+
+@media screen and (max-width: 768px) {
+  .topStack {
+    padding: 16px;
+    flex-wrap: wrap;
+  }
+
+  .logoSearch {
+    width: fit-content;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .userBox {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .leftBar {
+    position: fixed;
+    top: 98px;
+    left: 0;
+    width: 70%;
+    max-width: 300px;
+    height: auto;
+    background: $background;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 10;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.15);
+  }
+
+  .showMobileMenu {
+    transform: translateX(0);
+  }
+
+  .rightBar {
+    width: 100%;
+    padding: 16px;
+    z-index: 5;
+  }
+}
