@@ -330,15 +330,35 @@ const Dashboard = () => {
           </button>
 
           <span>
-            {Array.from({ length: totalPages }).map((_, i) => (
-              <p
-                key={i}
-                onClick={() => setCurrentPage(i + 1)}
-                className={`${currentPage === i + 1 ? styles.activePage : ""}`}
-              >
-                {i + 1}
-              </p>
-            ))}
+            {Array.from({ length: totalPages }).map((_, i) => {
+              const page = i + 1;
+
+              const isStart = page <= 2;
+              const isEnd = page >= totalPages - 1;
+              const isNearCurrent = Math.abs(page - currentPage) <= 1;
+
+              if (isStart || isEnd || isNearCurrent) {
+                return (
+                  <p
+                    key={page}
+                    onClick={() => setCurrentPage(page)}
+                    className={`${
+                      currentPage === page ? styles.activePage : ""
+                    }`}
+                  >
+                    {page}
+                  </p>
+                );
+              }
+              if (
+                (page === 3 && currentPage > 4) ||
+                (page === totalPages - 2 && currentPage < totalPages - 3)
+              ) {
+                return <p key={page}>...</p>;
+              }
+
+              return null;
+            })}
           </span>
 
           <button
