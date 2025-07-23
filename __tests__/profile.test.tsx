@@ -33,6 +33,20 @@ describe("Profile", () => {
     expect(screen.getAllByText(mockUser.user.email).length).toBeGreaterThan(0);
   });
 
+  it("shows fallback when no user is found for invalid ID (Negative)", () => {
+    window.history.pushState({}, "Test page", `?user=invalid-user-id`);
+    render(<Profile />);
+
+    expect(screen.getByText(/User Not Found/i)).toBeInTheDocument();
+  });
+
+  it("shows fallback when no user ID is passed in URL", () => {
+    window.history.pushState({}, "Test page", ``);
+    render(<Profile />);
+
+    expect(screen.getByText(/User Not Found/i)).toBeInTheDocument();
+  });
+
   it("navigates back to dashboard when back is clicked", () => {
     const pushMock = jest.fn();
     (useRouter as jest.Mock).mockReturnValue({ push: pushMock });

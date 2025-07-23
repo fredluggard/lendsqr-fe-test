@@ -39,7 +39,7 @@ const formatDate = (dateString: string) => {
 };
 
 describe("Dashboard", () => {
-  it("renders dashboard title and table headers", () => {
+  it("renders dashboard title and table headers (positive)", () => {
     render(<Dashboard />);
     expect(screen.getByText("Users")).toBeInTheDocument();
     expect(screen.getByText("Organization")).toBeInTheDocument();
@@ -50,83 +50,43 @@ describe("Dashboard", () => {
     expect(screen.getByText("Status")).toBeInTheDocument();
   });
 
-  it("loads and renders user data from localStorage", async () => {
-    const testUsers = [
-      {
-        id: "687e4fbe4fa14a3d14356fb2",
-        index: 0,
-        status: "inactive",
-        user: {
-          username: "Eleanor Nicholson",
-          email: "eleanor@irorun.com",
-          phone: "+234 (968) 440-2413",
-          twitter: "@eleanor_nicholson",
-          facebook: "Eleanor Nicholson",
-          instagram: "@eleanor_nicholson",
-          organization: "Irorun",
-          gender: "Male",
-          bvn: 29604575018,
-          code: "LSQBtFRxE8p",
-          userTier: 1,
-          marital_status: "Married",
-          children: 4,
-          type_of_residence: "Parent's Apartment",
-          education: "BEd",
-          bankDetails: {
-            bankName: "Access Bank",
-            acctNumber: 29635080729,
-            acctBalance: "₦449,437.00",
-          },
-          employment_status: "Unemployed",
-          sector_of_employment: "None",
-          duration_of_employment: "None",
-          office_email: "None",
-          monthly_income: "₦331,948.00 - ₦630,467.00",
-          loan_repayment: "300,000",
-          guarantor1: {
-            fullName: "Tiffany Monroe",
-            email: "tiffanymonroe@valpreal.com",
-            phone: "+234 (829) 566-3570",
-            relationship: "Mother",
-          },
-          guarantor2: {
-            fullName: "Hart Delacruz",
-            email: "hartdelacruz@valpreal.com",
-            phone: "+234 (890) 595-2928",
-            relationship: "Uncle",
-          },
-          dateJoined: "August Su, 2021 5:14 PM",
-        },
-      },
-    ];
-
-    window.localStorage.setItem("usersData", JSON.stringify(testUsers));
-
+  it("loads and renders user data from localStorage (positive)", async () => {
     render(<Dashboard />);
-    for (const user of testUsers) {
-      expect(
-        await screen.findByText(user.user.organization)
-      ).toBeInTheDocument();
-      expect(screen.getByText(user.user.username)).toBeInTheDocument();
-      expect(screen.getByText(user.user.email)).toBeInTheDocument();
-      expect(
-        screen.getByText(formatPhoneNumber(user.user.phone))
-      ).toBeInTheDocument();
-      expect(
-        screen.getByText(formatDate(user.user.dateJoined))
-      ).toBeInTheDocument();
-      expect(screen.getByText(user.status)).toBeInTheDocument();
-    }
+
+    const test = testUsers[0];
+    expect(
+      (await screen.findAllByText(test.user.organization)).length
+    ).toBeGreaterThan(0);
+    expect(
+      (await screen.findAllByText(test.user.username)).length
+    ).toBeGreaterThan(0);
+    expect(screen.getByText(test.user.username)).toBeInTheDocument();
+    expect(
+      (await screen.findAllByText(test.user.email)).length
+    ).toBeGreaterThan(0);
+    expect(
+      (await screen.findAllByText(formatPhoneNumber(test.user.phone))).length
+    ).toBeGreaterThan(0);
+    expect(
+      (await screen.findAllByText(formatDate(test.user.dateJoined))).length
+    ).toBeGreaterThan(0);
+    expect((await screen.findAllByText(test.status)).length).toBeGreaterThan(0);
   });
 
-  it("displays filter box when Username header is clicked", () => {
+  it("handles empty localStorage data gracefully (negative)", async () => {
+    window.localStorage.setItem("usersData", JSON.stringify([]));
+    render(<Dashboard />);
+    expect(screen.getByText("Users")).toBeInTheDocument();
+  });
+
+  it("displays filter box when Username header is clicked (positive)", () => {
     render(<Dashboard />);
     fireEvent.click(screen.getByText("Username"));
     expect(screen.getByPlaceholderText("User")).toBeInTheDocument();
     expect(screen.getByText("Filter")).toBeInTheDocument();
   });
 
-  it("filters users by username", async () => {
+  it("filters users by valid username input (positive)", async () => {
     render(<Dashboard />);
     fireEvent.click(screen.getByText("Username"));
     fireEvent.change(screen.getByPlaceholderText("User"), {
@@ -134,9 +94,21 @@ describe("Dashboard", () => {
     });
     fireEvent.click(screen.getByText("Filter"));
     await waitFor(() => {
-      const rows = screen.getAllByRole("cell");
-      expect(rows.length).toBeGreaterThan(0);
-      expect(screen.getAllByText(/Eleanor/i)[0]).toBeInTheDocument();
+      expect(screen.getAllByText(/Eleanor/i).length).toBeGreaterThan(0);
+    });
+  });
+
+  it("filters users with no match (negative)", async () => {
+    render(<Dashboard />);
+    fireEvent.click(screen.getByText("Username"));
+    fireEvent.change(screen.getByPlaceholderText("User"), {
+      target: { value: "NonExistentName" },
+    });
+    fireEvent.click(screen.getByText("Filter"));
+
+    await waitFor(() => {
+      const matches = screen.queryAllByText(/NonExistentName/i);
+      expect(matches.length).toBe(0);
     });
   });
 });

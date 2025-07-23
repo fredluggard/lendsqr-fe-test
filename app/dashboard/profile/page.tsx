@@ -39,7 +39,7 @@ const Profile = () => {
     setUserData(singleUser);
   }, []);
 
-  return (
+  return userData ? (
     <div className={styles.profileBox}>
       <span onClick={() => router.push("/dashboard")}>
         <Image
@@ -289,6 +289,8 @@ const Profile = () => {
         </div>
       )}
     </div>
+  ) : (
+    "User Not Found"
   );
 };
 
