@@ -32,6 +32,10 @@ const Profile = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const user = new URLSearchParams(window.location.search).get("user");
     const data = localStorage.getItem("usersData");
     const usersArray: UserRecord[] = data ? JSON.parse(data) : [];
