@@ -218,83 +218,83 @@ const Dashboard = () => {
               <p>No records found</p>
             )}
           </tbody>
-        </table>
 
-        {filterUser && (
-          <div className={styles.filterContainer}>
-            <label>
-              Organization
-              <select
-                value={organization}
-                onChange={(e) => setOrganization(e.target.value)}
-              >
-                <option value="">Select</option>
-                <option value="lendsqr">Lendsqr</option>
-                <option value="irorun">Irorun</option>
-              </select>
-            </label>
+          {filterUser && (
+            <div className={styles.filterContainer}>
+              <label>
+                Organization
+                <select
+                  value={organization}
+                  onChange={(e) => setOrganization(e.target.value)}
+                >
+                  <option value="">Select</option>
+                  <option value="lendsqr">Lendsqr</option>
+                  <option value="irorun">Irorun</option>
+                </select>
+              </label>
 
-            <label>
-              Username
-              <input
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                placeholder="User"
-              />
-            </label>
+              <label>
+                Username
+                <input
+                  type="text"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  placeholder="User"
+                />
+              </label>
 
-            <label>
-              Email
-              <input
-                type="text"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email"
-              />
-            </label>
+              <label>
+                Email
+                <input
+                  type="text"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Email"
+                />
+              </label>
 
-            <label>
-              Date
-              <input
-                type="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-              />
-            </label>
+              <label>
+                Date
+                <input
+                  type="date"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                />
+              </label>
 
-            <label>
-              Phone Number
-              <input
-                type="text"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-                placeholder="Phone Number"
-              />
-            </label>
+              <label>
+                Phone Number
+                <input
+                  type="text"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  placeholder="Phone Number"
+                />
+              </label>
 
-            <label>
-              Status:
-              <select
-                value={status}
-                onChange={(e) => setStatus(e.target.value)}
-              >
-                <option value="">Select</option>
-                <option value="active">Active</option>
-                <option value="inactive">Inactive</option>
-                <option value="pending">Pending</option>
-                <option value="blacklisted">Blacklisted</option>
-              </select>
-            </label>
+              <label>
+                Status:
+                <select
+                  value={status}
+                  onChange={(e) => setStatus(e.target.value)}
+                >
+                  <option value="">Select</option>
+                  <option value="active">Active</option>
+                  <option value="inactive">Inactive</option>
+                  <option value="pending">Pending</option>
+                  <option value="blacklisted">Blacklisted</option>
+                </select>
+              </label>
 
-            <div>
-              <button onClick={resetFilters}>Reset</button>
-              <button className={styles.filterBtn} onClick={handleFilter}>
-                Filter
-              </button>
+              <div>
+                <button onClick={resetFilters}>Reset</button>
+                <button className={styles.filterBtn} onClick={handleFilter}>
+                  Filter
+                </button>
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </table>
       </div>
 
       <div className={styles.pagination}>
